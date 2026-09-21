@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Analytics from "@/components/Analytics";
 import { business, indexable } from "@/content/business";
 import { JsonLd, organizationLd } from "@/lib/seo";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </main>
         <Footer />
         <StickyBar />
+        <WhatsAppFloat />
         <Analytics />
         <JsonLd data={organizationLd()} />
       </body>

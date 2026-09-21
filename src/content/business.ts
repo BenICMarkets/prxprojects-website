@@ -12,6 +12,9 @@ export const business = {
   shortLine: "One team. Clear scope. Managed from start to finish.",
   phone: { tel: "+27120019429", display: "012 001 9429" },
   whatsapp: { number: "27825690850", display: "082 569 0850" },
+  // Floating WhatsApp button (every page, bottom-right). Separate from the main
+  // WhatsApp number above at Ben's request — update here if it should match.
+  whatsappFloat: { number: "27799008949", display: "079 900 8949" },
   // Working value from the brief; swap for a PRX-branded address when available.
   email: "admin@plexirenovations.co.za",
   serviceArea: "Pretoria East, Centurion and surrounding areas",
@@ -28,8 +31,11 @@ export const business = {
   heroImage: null as { src: string; alt: string; width: number; height: number } | null,
 };
 
-export function whatsappHref(message = "Hi PRX Projects, I'd like to discuss a renovation project.") {
-  return `https://wa.me/${business.whatsapp.number}?text=${encodeURIComponent(message)}`;
+export function whatsappHref(
+  message = "Hi PRX Projects, I'd like to discuss a renovation project.",
+  number = business.whatsapp.number,
+) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 export function absoluteUrl(path = "/") {
