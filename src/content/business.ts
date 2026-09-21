@@ -27,8 +27,18 @@ export const business = {
     instagram: null as string | null,
     tiktok: null as string | null,
   },
-  // Set to a real completed-project photo, e.g. "/images/home-renovation-waterkloof-pretoria-01.jpg"
-  heroImage: null as { src: string; alt: string; width: number; height: number } | null,
+  // NOTE: this is a stock/inspiration photo, not a completed PRX Projects job
+  // (Ben confirmed). Fine as a temporary hero visual, but swap it for a real
+  // completed-project photo before SITE_INDEXABLE is set true — see CLAUDE.md
+  // ("Real project photos only. No AI-generated imagery presented as
+  // completed work."). Alt text below is intentionally generic and doesn't
+  // claim a PRX project or a Pretoria location.
+  heroImage: {
+    src: "/images/bathroom-hero-inspiration.jpg",
+    alt: "Modern bathroom with a walk-in glass shower, freestanding bath and double vanity",
+    width: 1672,
+    height: 941,
+  } as { src: string; alt: string; width: number; height: number } | null,
 };
 
 export function whatsappHref(
