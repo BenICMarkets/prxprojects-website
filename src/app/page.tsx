@@ -1,87 +1,71 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import CtaRow from "@/components/CtaRow";
+import Faq from "@/components/Faq";
 import Photo from "@/components/Photo";
-import { features, process, projects, services, site } from "@/data/site";
+import { business } from "@/content/business";
+import { services } from "@/content/services";
+import { homeFaqs, process, projects, reasons, reviews, trustStrip } from "@/content/site";
+import { pageMeta } from "@/lib/seo";
+
+export const metadata: Metadata = pageMeta({
+  title: `Renovation Contractors Pretoria | ${business.name}`,
+  description:
+    "Renovation and building contractors in Pretoria East and Centurion. Bathrooms, kitchens, full-home renovations, extensions and waterproofing managed from site visit to handover.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default function Home() {
+  const hero = business.heroImage;
   return (
     <>
       <section className="bg-ink text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+        <div
+          className={`mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:py-20 ${hero ? "md:grid-cols-2" : ""}`}
+        >
           <div>
-            <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
-              {site.name}
-            </p>
-            <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
-              {site.headline}
-            </h1>
-            <p className="mt-4 text-lg text-stone-300">{site.subheadline}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="rounded-md bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-dark"
-              >
-                Get a free consultation
-              </Link>
-              <Link
-                href="/portfolio"
-                className="rounded-md border border-stone-500 px-6 py-3 font-semibold hover:bg-white/10"
-              >
-                See our work
-              </Link>
+            <h1 className="text-4xl font-bold leading-tight sm:text-5xl">{business.headline}</h1>
+            <p className="mt-4 max-w-2xl text-lg text-stone-200">{business.subheadline}</p>
+            <div className="mt-8">
+              <CtaRow dark />
             </div>
           </div>
-          <Photo
-            src={null}
-            alt="Featured PRXProjects build"
-            priority
-            sizes="(min-width: 768px) 50vw, 100vw"
-            className="aspect-[4/3] rounded-lg"
-          />
+          {hero && (
+            <Photo
+              src={hero.src}
+              alt={hero.alt}
+              width={hero.width}
+              height={hero.height}
+              priority
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="rounded-lg"
+            />
+          )}
         </div>
       </section>
 
+      <section aria-label="At a glance" className="border-b border-stone-200 bg-muted">
+        <ul className="mx-auto flex max-w-6xl flex-wrap gap-x-8 gap-y-2 px-4 py-4 text-sm font-semibold text-stone-800">
+          {trustStrip.map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+      </section>
+
       <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold">Our services</h2>
-        <p className="mt-2 max-w-2xl text-stone-600">{site.tagline}.</p>
+        <h2 className="text-2xl font-bold sm:text-3xl">What we do</h2>
         <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 6).map((s) => (
-            <li key={s.slug} className="rounded-lg border border-stone-200 p-6">
-              <h3 className="text-lg font-semibold">{s.title}</h3>
-              <p className="mt-2 text-sm text-stone-600">{s.text}</p>
-            </li>
-          ))}
-        </ul>
-        <Link
-          href="/services"
-          className="mt-6 inline-block font-semibold text-accent hover:text-accent-dark"
-        >
-          All services →
-        </Link>
-      </section>
-
-      <section className="bg-muted">
-        <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-3xl font-bold">How we work</h2>
-          <p className="mt-2 text-stone-600">Three easy steps to your design.</p>
-          <ol className="mt-8 grid gap-6 md:grid-cols-3">
-            {process.map((step, i) => (
-              <li key={step.title} className="rounded-lg bg-white p-6 shadow-sm">
-                <span className="text-3xl font-bold text-accent">{i + 1}</span>
-                <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
-                <p className="mt-2 text-sm text-stone-600">{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-16">
-        <h2 className="text-3xl font-bold">Why PRXProjects</h2>
-        <ul className="mt-8 grid gap-6 md:grid-cols-3">
-          {features.map((f) => (
-            <li key={f.title}>
-              <h3 className="text-lg font-semibold text-accent">{f.title}</h3>
-              <p className="mt-2 text-stone-600">{f.text}</p>
+          {services.map((s) => (
+            <li key={s.slug} className="flex flex-col rounded-lg border border-stone-300 p-6">
+              <h3 className="text-lg font-semibold">{s.navLabel}</h3>
+              <p className="mt-2 flex-1 text-stone-700">{s.cardText}</p>
+              <Link
+                href={`/services/${s.slug}/`}
+                className="mt-4 font-semibold text-accent underline hover:text-accent-dark"
+              >
+                {s.h1}
+              </Link>
             </li>
           ))}
         </ul>
@@ -89,30 +73,88 @@ export default function Home() {
 
       <section className="bg-muted">
         <div className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="text-3xl font-bold">Recent work</h2>
-          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
-            {projects.slice(0, 3).map((p) => (
-              <li key={p.title}>
-                <Photo src={p.image} alt={p.alt} className="aspect-[4/3] rounded-lg" />
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-accent">
-                  {p.category}
-                </p>
-                <h3 className="font-semibold">{p.title}</h3>
+          <h2 className="text-2xl font-bold sm:text-3xl">Why PRX Projects</h2>
+          <ul className="mt-8 grid gap-8 md:grid-cols-3">
+            {reasons.map((r) => (
+              <li key={r.title}>
+                <h3 className="text-lg font-semibold">{r.title}</h3>
+                <p className="mt-2 text-stone-700">{r.text}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="bg-accent text-white">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-12">
-          <h2 className="text-2xl font-bold">You dream it, we design it.</h2>
-          <Link
-            href="/contact"
-            className="rounded-md bg-white px-6 py-3 font-semibold text-accent-dark hover:bg-stone-100"
-          >
-            Start your project
-          </Link>
+      {projects.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-2xl font-bold sm:text-3xl">Recent projects</h2>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+            {projects.slice(0, 4).map((p) => (
+              <li key={p.slug}>
+                <h3 className="font-semibold">
+                  <Link href={`/projects/${p.slug}/`} className="underline">
+                    {p.title}
+                  </Link>
+                </h3>
+                <p className="text-sm text-stone-700">
+                  {p.area}. {p.summary}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-2xl font-bold sm:text-3xl">How a project works</h2>
+        <ol className="mt-8 grid gap-6 md:grid-cols-4">
+          {process.map((step, i) => (
+            <li key={step.title} className="rounded-lg border border-stone-300 p-5">
+              <span className="text-2xl font-bold text-accent" aria-hidden="true">
+                {i + 1}
+              </span>
+              <h3 className="mt-1 font-semibold">{step.title}</h3>
+              <p className="mt-2 text-sm text-stone-700">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="bg-muted">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-2xl font-bold sm:text-3xl">Where we work</h2>
+          <p className="mt-3 max-w-2xl text-stone-700">
+            We are based in Pretoria and work in {business.serviceArea}. Not sure if we cover your
+            suburb? Send it to us and we will confirm.
+          </p>
+        </div>
+      </section>
+
+      {reviews.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-2xl font-bold sm:text-3xl">What clients say</h2>
+          <ul className="mt-8 grid gap-6 md:grid-cols-3">
+            {reviews.slice(0, 3).map((r) => (
+              <li key={r.name}>
+                <blockquote className="text-stone-700">“{r.quote}”</blockquote>
+                <p className="mt-2 text-sm font-semibold">{r.name}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <div className="mx-auto max-w-6xl px-4 py-16">
+        <Faq items={homeFaqs} />
+      </div>
+
+      <section className="bg-ink text-white">
+        <div className="mx-auto max-w-6xl px-4 py-14">
+          <h2 className="text-2xl font-bold sm:text-3xl">Tell us what you want to renovate.</h2>
+          <p className="mt-2 text-stone-200">We will arrange a site visit and send an itemised quote.</p>
+          <div className="mt-6">
+            <CtaRow dark />
+          </div>
         </div>
       </section>
     </>

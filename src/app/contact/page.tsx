@@ -1,51 +1,72 @@
 import type { Metadata } from "next";
-import ContactForm from "@/components/ContactForm";
-import { site } from "@/data/site";
+import QuoteForm from "@/components/QuoteForm";
+import { business, whatsappHref } from "@/content/business";
+import { JsonLd, breadcrumbLd, pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: `Contact ${site.name} for a free consultation. Call ${site.phoneDisplay} or send us a message.`,
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = pageMeta({
+  title: "Contact PRX Projects, Request a Quote in Pretoria",
+  description:
+    "Call, WhatsApp or send a quote request to PRX Projects for renovation and building work in Pretoria East, Centurion and surrounding areas.",
+  path: "/contact/",
+});
 
 export default function Contact() {
   return (
-    <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-2">
+    <div className="mx-auto grid max-w-6xl gap-12 px-4 py-14 md:grid-cols-2">
       <div>
-        <h1 className="text-4xl font-bold">Contact us</h1>
-        <p className="mt-2 text-stone-600">
-          Tell us about your project and we will get back to you.
+        <h1 className="text-3xl font-bold sm:text-4xl">Contact PRX Projects</h1>
+        <p className="mt-3 text-stone-800">
+          Call, WhatsApp or send the quote form. We will arrange a site visit and follow up with an
+          itemised quote.
         </p>
-        <dl className="mt-8 space-y-4">
+        <dl className="mt-8 space-y-5">
           <div>
-            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Phone
-            </dt>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">Phone</dt>
             <dd>
-              <a href={`tel:${site.phone}`} className="hover:underline">
-                {site.phoneDisplay}
+              <a
+                href={`tel:${business.phone.tel}`}
+                data-event="phone_click"
+                className="text-lg font-semibold underline"
+              >
+                {business.phone.display}
               </a>
             </dd>
           </div>
           <div>
-            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Email
-            </dt>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">WhatsApp</dt>
             <dd>
-              <a href={`mailto:${site.email}`} className="hover:underline">
-                {site.email}
+              <a
+                href={whatsappHref()}
+                data-event="whatsapp_click"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-lg font-semibold underline"
+              >
+                {business.whatsapp.display}
               </a>
             </dd>
           </div>
           <div>
-            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">
-              Area
-            </dt>
-            <dd>{site.areaServed}</dd>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">Email</dt>
+            <dd>
+              <a href={`mailto:${business.email}`} className="underline">
+                {business.email}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-accent">Service area</dt>
+            <dd>{business.serviceArea}</dd>
           </div>
         </dl>
       </div>
-      <ContactForm />
+      <QuoteForm />
+      <JsonLd
+        data={breadcrumbLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact/" },
+        ])}
+      />
     </div>
   );
 }

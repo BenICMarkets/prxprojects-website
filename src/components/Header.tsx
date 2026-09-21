@@ -1,16 +1,26 @@
 import Link from "next/link";
-import { nav, site } from "@/data/site";
+import { business } from "@/content/business";
+import { projects } from "@/content/site";
+import MobileMenu from "./MobileMenu";
+
+export const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/services/", label: "Services" },
+  ...(projects.length ? [{ href: "/projects/", label: "Projects" }] : []),
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+];
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3">
+    <header className="sticky top-0 z-40 border-b border-stone-200 bg-white">
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="text-xl font-bold tracking-tight text-ink">
-          PRX<span className="text-accent">Projects</span>
+          PRX <span className="text-accent">Projects</span>
         </Link>
-        <nav aria-label="Main" className="order-3 w-full sm:order-2 sm:w-auto">
-          <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium text-stone-700">
-            {nav.map((item) => (
+        <nav aria-label="Main" className="hidden md:block">
+          <ul className="flex gap-6 text-sm font-medium text-stone-700">
+            {navItems.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-accent">
                   {item.label}
@@ -19,12 +29,22 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-        <a
-          href={`tel:${site.phone}`}
-          className="order-2 rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-dark sm:order-3"
-        >
-          {site.phoneDisplay}
-        </a>
+        <div className="hidden items-center gap-3 md:flex">
+          <a
+            href={`tel:${business.phone.tel}`}
+            data-event="phone_click"
+            className="rounded-md border border-ink px-4 py-2 text-sm font-semibold hover:bg-stone-100"
+          >
+            Call Now {business.phone.display}
+          </a>
+          <Link
+            href="/contact/#quote"
+            className="rounded-md bg-accent px-4 py-2 text-sm font-semibold text-white hover:bg-accent-dark"
+          >
+            Get a Quote
+          </Link>
+        </div>
+        <MobileMenu items={navItems} />
       </div>
     </header>
   );

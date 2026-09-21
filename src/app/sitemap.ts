@@ -1,11 +1,22 @@
 import type { MetadataRoute } from "next";
-import { nav, site } from "@/data/site";
+import { absoluteUrl } from "@/content/business";
+import { services } from "@/content/services";
+import { projects } from "@/content/site";
 
+// Built from content data. Thank-you pages, previews and empty sections are excluded.
 export default function sitemap(): MetadataRoute.Sitemap {
-  return nav.map((item) => ({
-    url: `${site.url}${item.href === "/" ? "" : item.href}`,
-    lastModified: new Date(),
-    changeFrequency: item.href === "/" ? "weekly" : "monthly",
-    priority: item.href === "/" ? 1 : 0.7,
+  const paths = [
+    "/",
+    "/services/",
+    ...services.map((s) => `/services/${s.slug}/`),
+    ...(projects.length ? ["/projects/", ...projects.map((p) => `/projects/${p.slug}/`)] : []),
+    "/about/",
+    "/contact/",
+    "/privacy/",
+  ];
+  return paths.map((p) => ({
+    url: absoluteUrl(p),
+    changeFrequency: p === "/" ? "weekly" : "monthly",
+    priority: p === "/" ? 1 : p.startsWith("/services/") ? 0.8 : 0.5,
   }));
 }

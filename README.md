@@ -1,38 +1,48 @@
-# PRXProjects site
+# PRX Projects website
 
-Next.js (App Router) + Tailwind CSS. Live at https://prxprojects.co.za, hosted on Vercel, deployed from this repo.
+Next.js 16 (App Router) + Tailwind v4. Domain: prxprojects.co.za. Hosted on Vercel, deployed from GitHub.
 
-## Edit content
+Rules and source material for this repo are in `CLAUDE.md` and `docs/`.
 
-- Business details, services, process and portfolio: `src/data/site.ts`
-- Photos: put files in `public/images/` and reference them as `/images/name.jpg` in `src/data/site.ts` (portfolio `image` field). Entries with `image: null` show a "Photo coming soon" placeholder.
-- Pages: `src/app/<page>/page.tsx`
+## Where things live
+
+- Business details, phone, WhatsApp, hero image: `src/content/business.ts`
+- Service pages: `src/content/services.ts` (one entry per page, built automatically)
+- Process, reasons, homepage FAQs, projects and reviews: `src/content/site.ts`
+- Pages: `src/app/`
+- Photos: `public/images/`
+
+Projects and reviews are empty on purpose. Add real, verified entries to `projects` and `reviews` in `src/content/site.ts` and the homepage sections, nav link and sitemap appear automatically. Set `heroImage` in `business.ts` once a real project photo is available.
 
 ## Run locally
 
 ```bash
 npm install
-npm run dev     # http://localhost:3000
-npm run build   # production build check
+npm run dev
+npm run build   # typecheck + production build
+npm run lint
 ```
 
-## Contact form (Formspree)
+## Environment variables (Vercel: Project Settings > Environment Variables)
 
-1. Create a form at https://formspree.io and copy the ID from its URL (`formspree.io/f/<ID>`).
-2. In Vercel: Project Settings > Environment Variables, add `NEXT_PUBLIC_FORMSPREE_ID` = `<ID>` for Production and Preview, then redeploy.
-3. Locally, copy `.env.example` to `.env.local` and fill it in.
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_FORMSPREE_ID` | Quote form destination (ID from formspree.io/f/&lt;ID&gt;). Without it the form shows a call/WhatsApp fallback. |
+| `SITE_INDEXABLE` | Set to `true` in **Production only** at launch. Until then the site is noindex and robots.txt blocks crawlers. |
+| `NEXT_PUBLIC_GA_ID` | Optional GA4 ID. Nothing loads if empty. |
 
-Until the ID is set the form shows a fallback message with the phone number and email.
+## Deploy
 
-## Deploy (Vercel)
+1. Create the GitHub repo, push this branch, import it in Vercel (framework auto-detected).
+2. Add the variables above (leave `SITE_INDEXABLE` unset until launch).
+3. Merge to `main` for production; every other branch gets a preview URL.
 
-1. Sign in at vercel.com with GitHub, Add New > Project, import `prxprojects-site`. Framework is auto-detected as Next.js.
-2. Add the environment variable above, then Deploy.
-3. Every push to `main` deploys to production; other branches get preview URLs.
+## Connect prxprojects.co.za DNS later (AfriHost)
 
-## Connect prxprojects.co.za (DNS stays at AfriHost)
+Do this only when ready to go live:
 
-1. Vercel: Project > Settings > Domains > add `prxprojects.co.za` (and `www.prxprojects.co.za`).
-2. Vercel shows the exact DNS records to use. Typically an `A` record for the root `@` pointing to `76.76.21.21`, and a `CNAME` for `www` pointing to `cname.vercel-dns.com`. Use the values Vercel displays for your project.
-3. In AfriHost's DNS management for the domain, set those records in place of the existing `@` and `www` records. Leave MX (email) records alone.
-4. Wait for propagation (minutes to 48 hours). Vercel then issues HTTPS automatically.
+1. Export or screenshot the current DNS records at AfriHost, including MX, TXT (SPF/DKIM/DMARC).
+2. Vercel > Project > Settings > Domains > add `prxprojects.co.za` and `www.prxprojects.co.za`. Use the exact records Vercel displays.
+3. Change only the web records (root A and `www` CNAME). Leave MX/TXT untouched.
+4. Choose one hostname and redirect the other in Vercel. Confirm HTTPS.
+5. Set `SITE_INDEXABLE=true` in Production, redeploy, verify Search Console and submit `/sitemap.xml`.
