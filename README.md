@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PRXProjects site
 
-## Getting Started
+Next.js (App Router) + Tailwind CSS. Live at https://prxprojects.co.za, hosted on Vercel, deployed from this repo.
 
-First, run the development server:
+## Edit content
+
+- Business details, services, process and portfolio: `src/data/site.ts`
+- Photos: put files in `public/images/` and reference them as `/images/name.jpg` in `src/data/site.ts` (portfolio `image` field). Entries with `image: null` show a "Photo coming soon" placeholder.
+- Pages: `src/app/<page>/page.tsx`
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contact form (Formspree)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Create a form at https://formspree.io and copy the ID from its URL (`formspree.io/f/<ID>`).
+2. In Vercel: Project Settings > Environment Variables, add `NEXT_PUBLIC_FORMSPREE_ID` = `<ID>` for Production and Preview, then redeploy.
+3. Locally, copy `.env.example` to `.env.local` and fill it in.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Until the ID is set the form shows a fallback message with the phone number and email.
 
-## Learn More
+## Deploy (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+1. Sign in at vercel.com with GitHub, Add New > Project, import `prxprojects-site`. Framework is auto-detected as Next.js.
+2. Add the environment variable above, then Deploy.
+3. Every push to `main` deploys to production; other branches get preview URLs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Connect prxprojects.co.za (DNS stays at AfriHost)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Vercel: Project > Settings > Domains > add `prxprojects.co.za` (and `www.prxprojects.co.za`).
+2. Vercel shows the exact DNS records to use. Typically an `A` record for the root `@` pointing to `76.76.21.21`, and a `CNAME` for `www` pointing to `cname.vercel-dns.com`. Use the values Vercel displays for your project.
+3. In AfriHost's DNS management for the domain, set those records in place of the existing `@` and `www` records. Leave MX (email) records alone.
+4. Wait for propagation (minutes to 48 hours). Vercel then issues HTTPS automatically.

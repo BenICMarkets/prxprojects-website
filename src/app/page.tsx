@@ -1,69 +1,120 @@
-import Image from "next/image";
+import Link from "next/link";
+import Photo from "@/components/Photo";
+import { features, process, projects, services, site } from "@/data/site";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="bg-ink text-white">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-widest text-orange-400">
+              {site.name}
+            </p>
+            <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
+              {site.headline}
+            </h1>
+            <p className="mt-4 text-lg text-stone-300">{site.subheadline}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="rounded-md bg-accent px-6 py-3 font-semibold text-white hover:bg-accent-dark"
+              >
+                Get a free consultation
+              </Link>
+              <Link
+                href="/portfolio"
+                className="rounded-md border border-stone-500 px-6 py-3 font-semibold hover:bg-white/10"
+              >
+                See our work
+              </Link>
+            </div>
+          </div>
+          <Photo
+            src={null}
+            alt="Featured PRXProjects build"
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="aspect-[4/3] rounded-lg"
+          />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-3xl font-bold">Our services</h2>
+        <p className="mt-2 max-w-2xl text-stone-600">{site.tagline}.</p>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, 6).map((s) => (
+            <li key={s.slug} className="rounded-lg border border-stone-200 p-6">
+              <h3 className="text-lg font-semibold">{s.title}</h3>
+              <p className="mt-2 text-sm text-stone-600">{s.text}</p>
+            </li>
+          ))}
+        </ul>
+        <Link
+          href="/services"
+          className="mt-6 inline-block font-semibold text-accent hover:text-accent-dark"
+        >
+          All services →
+        </Link>
+      </section>
+
+      <section className="bg-muted">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-3xl font-bold">How we work</h2>
+          <p className="mt-2 text-stone-600">Three easy steps to your design.</p>
+          <ol className="mt-8 grid gap-6 md:grid-cols-3">
+            {process.map((step, i) => (
+              <li key={step.title} className="rounded-lg bg-white p-6 shadow-sm">
+                <span className="text-3xl font-bold text-accent">{i + 1}</span>
+                <h3 className="mt-2 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-2 text-sm text-stone-600">{step.text}</p>
+              </li>
+            ))}
+          </ol>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-16">
+        <h2 className="text-3xl font-bold">Why PRXProjects</h2>
+        <ul className="mt-8 grid gap-6 md:grid-cols-3">
+          {features.map((f) => (
+            <li key={f.title}>
+              <h3 className="text-lg font-semibold text-accent">{f.title}</h3>
+              <p className="mt-2 text-stone-600">{f.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="bg-muted">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <h2 className="text-3xl font-bold">Recent work</h2>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-3">
+            {projects.slice(0, 3).map((p) => (
+              <li key={p.title}>
+                <Photo src={p.image} alt={p.alt} className="aspect-[4/3] rounded-lg" />
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-accent">
+                  {p.category}
+                </p>
+                <h3 className="font-semibold">{p.title}</h3>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-accent text-white">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-12">
+          <h2 className="text-2xl font-bold">You dream it, we design it.</h2>
+          <Link
+            href="/contact"
+            className="rounded-md bg-white px-6 py-3 font-semibold text-accent-dark hover:bg-stone-100"
+          >
+            Start your project
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
