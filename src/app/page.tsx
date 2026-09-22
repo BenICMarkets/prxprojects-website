@@ -5,7 +5,7 @@ import Faq from "@/components/Faq";
 import Photo from "@/components/Photo";
 import { business } from "@/content/business";
 import { services } from "@/content/services";
-import { homeFaqs, process, projects, reasons, reviews, trustStrip } from "@/content/site";
+import { homeFaqs, process, projects, reasons, reviews, trustStrip, workPhotos } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -84,6 +84,36 @@ export default function Home() {
           </ul>
         </div>
       </section>
+
+      {workPhotos.length > 0 && (
+        <section className="mx-auto max-w-6xl px-4 py-16">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="text-2xl font-bold sm:text-3xl">Our work</h2>
+            <Link href="/projects/" className="font-semibold text-accent underline hover:text-accent-dark">
+              See more of our work
+            </Link>
+          </div>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2">
+            {workPhotos.slice(0, 2).map((p) => (
+              <li key={p.slug} className="overflow-hidden rounded-lg border border-stone-300">
+                <Photo
+                  src={p.src}
+                  alt={p.alt}
+                  width={p.width}
+                  height={p.height}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                />
+                <div className="p-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    {p.category}
+                  </span>
+                  <p className="mt-1 font-semibold">{p.caption}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {projects.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 py-16">

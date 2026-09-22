@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/content/business";
 import { services } from "@/content/services";
-import { projects } from "@/content/site";
+import { projects, workPhotos } from "@/content/site";
 
 // Built from content data. Thank-you pages, previews and empty sections are excluded.
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,7 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/services/",
     ...services.map((s) => `/services/${s.slug}/`),
-    ...(projects.length ? ["/projects/", ...projects.map((p) => `/projects/${p.slug}/`)] : []),
+    ...(projects.length || workPhotos.length
+      ? ["/projects/", ...projects.map((p) => `/projects/${p.slug}/`)]
+      : []),
     "/about/",
     "/contact/",
     "/privacy/",

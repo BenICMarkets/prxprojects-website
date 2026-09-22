@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/content/business";
-import { projects } from "@/content/site";
+import { projects, workPhotos } from "@/content/site";
 import MobileMenu from "./MobileMenu";
 
 export const navItems = [
   { href: "/", label: "Home" },
   { href: "/services/", label: "Services" },
-  ...(projects.length ? [{ href: "/projects/", label: "Projects" }] : []),
+  ...(projects.length || workPhotos.length ? [{ href: "/projects/", label: "Projects" }] : []),
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
 ];

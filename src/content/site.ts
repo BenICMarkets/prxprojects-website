@@ -66,6 +66,10 @@ export const projectTypes = [
 
 // Real, verified content only. Empty arrays mean the related sections and nav links
 // are hidden and the pages are left out of the sitemap.
+//
+// Full project case studies (with confirmed area, completion date, duration and
+// photo rights) go in `projects` below and get their own /projects/[slug] page.
+// Those details are not yet confirmed for anything, so it stays empty.
 export type Project = {
   slug: string;
   title: string;
@@ -74,6 +78,66 @@ export type Project = {
   summary: string;
 };
 export const projects: Project[] = [];
+
+// Real work photos with no case-study detail confirmed yet (no address, completion
+// date or duration on file) — shown as a simple photo gallery, not linked to
+// individual project pages. Swap in real case studies above as details are confirmed.
+export type WorkPhoto = {
+  slug: string;
+  src: string;
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+  category: "Commercial" | "Kitchen" | "Bathroom" | "Full home";
+};
+export const workPhotos: WorkPhoto[] = [
+  {
+    slug: "commercial-glazing-menlyn",
+    src: "/images/projects/commercial-glazing-installation-menlyn-pretoria-01.jpg",
+    width: 1421,
+    height: 800,
+    alt: "Aluminium-framed glazing installed along a commercial building facade in Menlyn, Pretoria",
+    caption: "Commercial glazing installation",
+    category: "Commercial",
+  },
+  {
+    slug: "commercial-office-fitout",
+    src: "/images/projects/commercial-office-fitout-pretoria-01.jpg",
+    width: 1600,
+    height: 1200,
+    alt: "Office fit-out with partitioned meeting rooms and coloured glass panels",
+    caption: "Commercial office fit-out",
+    category: "Commercial",
+  },
+  {
+    slug: "kitchen-renovation-midstream",
+    src: "/images/projects/kitchen-renovation-midstream-pretoria-01.jpg",
+    width: 793,
+    height: 435,
+    alt: "Renovated kitchen with slatted wood island, oak cabinetry and pendant lighting",
+    caption: "Kitchen renovation",
+    category: "Kitchen",
+  },
+  {
+    slug: "bathroom-renovation-freestanding-bath",
+    src: "/images/projects/bathroom-renovation-freestanding-bath-pretoria-01.jpg",
+    width: 1034,
+    height: 807,
+    alt: "Bathroom renovation with a freestanding bath, floor-mounted mixer and frosted window",
+    caption: "Bathroom renovation",
+    category: "Bathroom",
+  },
+  {
+    slug: "home-renovation-living-area",
+    src: "/images/projects/home-renovation-living-area-pretoria-01.jpg",
+    width: 1600,
+    height: 1200,
+    alt: "Renovated open-plan living area with vinyl wood flooring and built-in shelving",
+    caption: "Full home renovation",
+    category: "Full home",
+  },
+];
 
 export type Review = { quote: string; name: string; source?: string };
 export const reviews: Review[] = [];
