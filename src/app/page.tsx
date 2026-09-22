@@ -6,7 +6,7 @@ import Faq from "@/components/Faq";
 import Photo from "@/components/Photo";
 import { business } from "@/content/business";
 import { services } from "@/content/services";
-import { homeFaqs, process, projects, reasons, reviews, trustStrip, workPhotos } from "@/content/site";
+import { homeFaqs, process, projects, reasons, reviews, stats, workPhotos } from "@/content/site";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
@@ -45,11 +45,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section aria-label="At a glance" className="bg-ink text-white">
-        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 sm:grid-cols-4">
-          {trustStrip.map((t) => (
-            <li key={t} className="border-t border-white/20 pt-3 text-sm font-semibold uppercase tracking-wide text-stone-200">
-              {t}
+      <section aria-label="PRX Projects by the numbers" className="bg-ink text-white">
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-10 sm:grid-cols-4">
+          {stats.map((s) => (
+            <li key={s.label} className="border-t border-white/20 pt-4">
+              <span className="block text-4xl font-extrabold sm:text-5xl">{s.value}</span>
+              <span className="mt-1 block text-sm font-semibold uppercase tracking-wide text-stone-300">
+                {s.label}
+              </span>
             </li>
           ))}
         </ul>

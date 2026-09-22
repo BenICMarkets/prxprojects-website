@@ -30,6 +30,14 @@ export const trustStrip = [
   "One point of contact",
 ];
 
+// Confirmed by Ben. Shown as the bold stat row under the homepage hero.
+export const stats = [
+  { value: "300+", label: "Completed Projects" },
+  { value: "300+", label: "Satisfied Clients" },
+  { value: "13+", label: "Years of Experience" },
+  { value: "100%", label: "Safety Compliance" },
+];
+
 export const homeFaqs = [
   {
     q: "How do I request a renovation quote?",
