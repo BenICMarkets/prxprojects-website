@@ -9,6 +9,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/services/", label: "Services" },
   ...(projects.length || workPhotos.length ? [{ href: "/projects/", label: "Projects" }] : []),
+  ...(workPhotos.length ? [{ href: "/gallery/", label: "Gallery" }] : []),
   ...(blogPosts.length ? [{ href: "/blog/", label: "Blog" }] : []),
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },

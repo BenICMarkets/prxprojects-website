@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import CtaRow from "@/components/CtaRow";
 import Photo from "@/components/Photo";
 import { projects, workPhotos } from "@/content/site";
@@ -12,34 +13,51 @@ export const metadata: Metadata = pageMeta({
 });
 
 export default function Projects() {
+  const preview = workPhotos.slice(0, 6);
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-14">
       <h1 className="text-3xl font-bold sm:text-4xl">Our work</h1>
       <p className="mt-4 max-w-2xl text-lg text-stone-800">
         A selection of renovation, building and commercial fit-out work carried out by our team.
-        Full case studies with project details are added as they are confirmed.
+        Full case studies with project details are added as they are confirmed. For the complete,
+        filterable set of photos, see the{" "}
+        <Link href="/gallery/" className="font-semibold text-accent underline">
+          work gallery
+        </Link>
+        .
       </p>
 
-      {workPhotos.length > 0 && (
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {workPhotos.map((p) => (
-            <li key={p.slug} className="overflow-hidden rounded-lg border border-stone-300">
-              <Photo
-                src={p.src}
-                alt={p.alt}
-                width={p.width}
-                height={p.height}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              />
-              <div className="p-4">
-                <span className="text-xs font-semibold uppercase tracking-wider text-accent">
-                  {p.category}
-                </span>
-                <p className="mt-1 font-semibold">{p.caption}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
+      {preview.length > 0 && (
+        <>
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {preview.map((p) => (
+              <li key={p.slug} className="overflow-hidden rounded-lg border border-stone-300">
+                <Photo
+                  src={p.src}
+                  alt={p.alt}
+                  width={p.width}
+                  height={p.height}
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+                <div className="p-4">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-accent">
+                    {p.category}
+                  </span>
+                  <p className="mt-1 font-semibold">{p.caption}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <Link
+              href="/gallery/"
+              className="inline-block rounded-md border border-accent px-5 py-2.5 font-semibold text-accent hover:bg-accent hover:text-white"
+            >
+              View the full gallery ({workPhotos.length} photos)
+            </Link>
+          </div>
+        </>
       )}
 
       {projects.length > 0 && (

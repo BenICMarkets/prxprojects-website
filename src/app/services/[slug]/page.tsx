@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import CtaRow from "@/components/CtaRow";
 import Faq from "@/components/Faq";
+import Photo from "@/components/Photo";
 import { business, absoluteUrl } from "@/content/business";
 import { getService, services } from "@/content/services";
-import { process } from "@/content/site";
+import { process, serviceGalleryCategories, workPhotos } from "@/content/site";
 import { JsonLd, breadcrumbLd, pageMeta } from "@/lib/seo";
 
 export const dynamicParams = false;
@@ -31,6 +32,15 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
   if (!s) notFound();
   const path = `/services/${s.slug}/`;
   const related = s.related.map((r) => getService(r)).filter((r) => r !== undefined);
+
+  const galleryCategoriesForService = serviceGalleryCategories[s.slug];
+  const galleryPreview = galleryCategoriesForService
+    ? workPhotos.filter((p) => galleryCategoriesForService.includes(p.category)).slice(0, 6)
+    : [];
+  const galleryHref =
+    galleryCategoriesForService?.length === 1
+      ? `/gallery/?category=${encodeURIComponent(galleryCategoriesForService[0])}`
+      : "/gallery/";
 
   const serviceLd = {
     "@context": "https://schema.org",
@@ -110,6 +120,32 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       <div className="mt-14">
         <Faq items={s.faqs} id="service-faq" />
       </div>
+
+      {galleryPreview.length > 0 && (
+        <section className="mt-14" aria-labelledby="gallery-preview">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 id="gallery-preview" className="text-2xl font-bold">
+              From our work gallery
+            </h2>
+            <Link href={galleryHref} className="font-semibold text-accent underline">
+              View all photos
+            </Link>
+          </div>
+          <ul className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            {galleryPreview.map((p) => (
+              <li key={p.slug} className="overflow-hidden rounded-lg border border-stone-300">
+                <Photo
+                  src={p.src}
+                  alt={p.alt}
+                  width={p.width}
+                  height={p.height}
+                  sizes="(min-width: 640px) 33vw, 50vw"
+                />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="mt-14" aria-labelledby="related">

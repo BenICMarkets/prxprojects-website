@@ -94,12 +94,12 @@ export default function Home() {
         <section className="mx-auto max-w-6xl px-4 py-16">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="text-2xl font-bold sm:text-3xl">Our work</h2>
-            <Link href="/projects/" className="font-semibold text-accent underline hover:text-accent-dark">
+            <Link href="/gallery/" className="font-semibold text-accent underline hover:text-accent-dark">
               See more of our work
             </Link>
           </div>
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2">
-            {workPhotos.slice(0, 2).map((p) => (
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {workPhotos.slice(0, 4).map((p) => (
               <li key={p.slug} className="overflow-hidden rounded-lg border border-stone-300">
                 <Photo
                   src={p.src}

@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...(projects.length || workPhotos.length
       ? ["/projects/", ...projects.map((p) => `/projects/${p.slug}/`)]
       : []),
+    ...(workPhotos.length ? ["/gallery/"] : []),
     ...(blogPosts.length ? ["/blog/", ...blogPosts.map((p) => `/blog/${p.slug}/`)] : []),
     "/about/",
     "/contact/",
