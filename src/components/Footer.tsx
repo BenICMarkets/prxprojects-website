@@ -10,6 +10,46 @@ export default function Footer() {
           <p className="text-lg font-bold text-white">PRX Projects</p>
           <p className="mt-3 text-sm">{business.shortLine}</p>
           <p className="mt-3 text-sm">Serving {business.serviceArea}.</p>
+          {(business.social.facebook || business.social.instagram || business.social.tiktok) && (
+            <ul className="mt-4 flex gap-4 text-sm font-semibold">
+              {business.social.facebook && (
+                <li>
+                  <a
+                    href={business.social.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white"
+                  >
+                    Facebook
+                  </a>
+                </li>
+              )}
+              {business.social.instagram && (
+                <li>
+                  <a
+                    href={business.social.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white"
+                  >
+                    Instagram
+                  </a>
+                </li>
+              )}
+              {business.social.tiktok && (
+                <li>
+                  <a
+                    href={business.social.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white"
+                  >
+                    TikTok
+                  </a>
+                </li>
+              )}
+            </ul>
+          )}
         </div>
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wider text-white">Services</h2>

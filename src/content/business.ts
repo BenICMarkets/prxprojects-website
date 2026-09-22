@@ -23,9 +23,9 @@ export const business = {
   address: null as string | null,
   hours: null as string | null,
   social: {
-    facebook: null as string | null,
-    instagram: null as string | null,
-    tiktok: null as string | null,
+    facebook: "https://www.facebook.com/profile.php?id=61582523463885" as string | null,
+    instagram: "https://www.instagram.com/prx_construction/" as string | null,
+    tiktok: "https://www.tiktok.com/@prxprojects" as string | null,
   },
   // Real PRX Projects logo, supplied by Ben. Transparent PNG for the white
   // header; a white-bg JPEG fallback also lives at prx-logo-white-bg.jpg.
@@ -35,18 +35,22 @@ export const business = {
     width: 721,
     height: 243,
   },
-  // NOTE: this is a stock/inspiration photo, not a completed PRX Projects job
-  // (Ben confirmed). Fine as a temporary hero visual, but swap it for a real
-  // completed-project photo before SITE_INDEXABLE is set true — see CLAUDE.md
-  // ("Real project photos only. No AI-generated imagery presented as
-  // completed work."). Alt text below is intentionally generic and doesn't
-  // claim a PRX project or a Pretoria location.
+  // Real PRX/Plexi project photo (freestanding bath bathroom renovation) — replaces
+  // the earlier stock/inspiration placeholder now that real work photos are on file.
   heroImage: {
-    src: "/images/bathroom-hero-inspiration.jpg",
-    alt: "Modern bathroom with a walk-in glass shower, freestanding bath and double vanity",
-    width: 1672,
-    height: 941,
+    src: "/images/projects/bathroom-renovation-freestanding-bath-pretoria-01.jpg",
+    alt: "Bathroom renovation with a freestanding bath, floor-mounted mixer and frosted window",
+    width: 1034,
+    height: 807,
   } as { src: string; alt: string; width: number; height: number } | null,
+  // Default social-share image (Facebook/WhatsApp/Twitter link previews). Real
+  // project photo — a wide exterior shot works better than a portrait/square crop.
+  defaultOgImage: {
+    src: "/images/projects/commercial-glazing-installation-menlyn-pretoria-01.jpg",
+    alt: "Aluminium-framed glazing installed along a commercial building facade in Menlyn, Pretoria",
+    width: 1421,
+    height: 800,
+  },
 };
 
 export function whatsappHref(

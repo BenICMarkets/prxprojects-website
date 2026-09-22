@@ -4,7 +4,7 @@ import { business, whatsappHref } from "@/content/business";
 import { JsonLd, breadcrumbLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Contact PRX Projects, Request a Quote in Pretoria",
+  title: "Contact Us, Request a Quote in Pretoria",
   description:
     "Call, WhatsApp or send a quote request to PRX Projects for renovation and building work in Pretoria East, Centurion and surrounding areas.",
   path: "/contact/",

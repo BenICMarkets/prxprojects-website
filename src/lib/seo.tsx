@@ -12,6 +12,12 @@ export function pageMeta({
   path: string;
   absoluteTitle?: boolean;
 }): Metadata {
+  const ogImage = {
+    url: business.defaultOgImage.src,
+    width: business.defaultOgImage.width,
+    height: business.defaultOgImage.height,
+    alt: business.defaultOgImage.alt,
+  };
   return {
     title: absoluteTitle ? { absolute: title } : title,
     description,
@@ -23,6 +29,13 @@ export function pageMeta({
       title: absoluteTitle ? title : `${title} | ${business.name}`,
       description,
       url: path,
+      images: [ogImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: absoluteTitle ? title : `${title} | ${business.name}`,
+      description,
+      images: [ogImage.url],
     },
   };
 }

@@ -5,7 +5,7 @@ import { process, reasons } from "@/content/site";
 import { JsonLd, breadcrumbLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "About PRX Projects, Renovation Contractors in Pretoria",
+  title: "About Us, Renovation Contractors in Pretoria",
   description:
     "PRX Projects is a Pretoria renovation and building contractor managing bathrooms, kitchens, home renovations and extensions with one point of contact.",
   path: "/about/",

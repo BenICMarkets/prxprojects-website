@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import CtaRow from "@/components/CtaRow";
 import Photo from "@/components/Photo";
-import { business } from "@/content/business";
 import { projects, workPhotos } from "@/content/site";
 import { JsonLd, breadcrumbLd, pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: `Our Work | ${business.name}`,
+  title: "Our Work, Renovation & Building Projects in Pretoria",
   description:
     "Photos from PRX Projects' renovation and building work in Pretoria: kitchens, bathrooms, full-home renovations and commercial fit-outs.",
   path: "/projects/",
