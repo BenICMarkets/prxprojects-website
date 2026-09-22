@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/content/business";
 import { projects } from "@/content/site";
@@ -15,8 +16,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-stone-200 bg-white">
       <div className="relative mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="text-xl font-bold tracking-tight text-ink">
-          PRX <span className="text-accent">Projects</span>
+        <Link href="/" className="flex items-center" aria-label={business.name}>
+          <Image
+            src={business.logo.src}
+            alt={business.logo.alt}
+            width={business.logo.width}
+            height={business.logo.height}
+            priority
+            className="h-9 w-auto md:h-10"
+          />
         </Link>
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex gap-6 text-sm font-medium text-stone-700">

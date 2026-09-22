@@ -27,6 +27,14 @@ export const business = {
     instagram: null as string | null,
     tiktok: null as string | null,
   },
+  // Real PRX Projects logo, supplied by Ben. Transparent PNG for the white
+  // header; a white-bg JPEG fallback also lives at prx-logo-white-bg.jpg.
+  logo: {
+    src: "/images/prx-logo.png",
+    alt: "PRX Projects logo",
+    width: 721,
+    height: 243,
+  },
   // NOTE: this is a stock/inspiration photo, not a completed PRX Projects job
   // (Ben confirmed). Fine as a temporary hero visual, but swap it for a real
   // completed-project photo before SITE_INDEXABLE is set true — see CLAUDE.md
