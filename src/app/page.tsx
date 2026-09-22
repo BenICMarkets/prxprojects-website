@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import CtaRow from "@/components/CtaRow";
@@ -20,37 +21,36 @@ export default function Home() {
   const hero = business.heroImage;
   return (
     <>
-      <section className="bg-ink text-white">
-        <div
-          className={`mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:py-20 ${hero ? "md:grid-cols-2" : ""}`}
-        >
-          <div>
-            <h1 className="text-5xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              {business.headline}
-            </h1>
-            <p className="mt-4 max-w-2xl text-lg text-stone-200">{business.subheadline}</p>
-            <div className="mt-8">
-              <CtaRow dark />
-            </div>
+      <section className="relative overflow-hidden bg-ink text-white">
+        {hero && (
+          <div className="absolute inset-0" aria-hidden="true">
+            <Image src={hero.src} alt="" fill priority sizes="100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/85 to-ink/55" />
+            <div className="absolute inset-0 bg-ink/25" />
           </div>
-          {hero && (
-            <Photo
-              src={hero.src}
-              alt={hero.alt}
-              width={hero.width}
-              height={hero.height}
-              priority
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="rounded-lg"
-            />
-          )}
+        )}
+        <div className="relative mx-auto max-w-4xl px-4 py-16 md:py-24">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+            <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden="true" />
+            Renovation &amp; Building Contractors
+          </span>
+          <h1 className="mt-5 text-5xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            <span className="block">Renovation &amp; Building</span>
+            <span className="block text-accent">Contractors in Pretoria</span>
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg text-stone-200">{business.subheadline}</p>
+          <div className="mt-8">
+            <CtaRow dark />
+          </div>
         </div>
       </section>
 
-      <section aria-label="At a glance" className="border-b border-stone-200 bg-muted">
-        <ul className="mx-auto flex max-w-6xl flex-wrap gap-x-8 gap-y-2 px-4 py-4 text-sm font-semibold text-stone-800">
+      <section aria-label="At a glance" className="bg-ink text-white">
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-4 py-8 sm:grid-cols-4">
           {trustStrip.map((t) => (
-            <li key={t}>{t}</li>
+            <li key={t} className="border-t border-white/20 pt-3 text-sm font-semibold uppercase tracking-wide text-stone-200">
+              {t}
+            </li>
           ))}
         </ul>
       </section>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyBar from "@/components/StickyBar";
+import Ticker from "@/components/Ticker";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
 import Analytics from "@/components/Analytics";
 import { business, indexable } from "@/content/business";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to content
         </a>
+        <Ticker />
         <Header />
         <main id="main" className="flex-1">
           {children}

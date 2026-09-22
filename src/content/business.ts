@@ -35,13 +35,13 @@ export const business = {
     width: 721,
     height: 243,
   },
-  // Real PRX/Plexi project photo (freestanding bath bathroom renovation) — replaces
-  // the earlier stock/inspiration placeholder now that real work photos are on file.
+  // Full-bleed homepage hero background (real PRX/Plexi project photo, dark
+  // overlay applied in the hero section, not shown as a boxed photo).
   heroImage: {
-    src: "/images/projects/bathroom-renovation-freestanding-bath-pretoria-01.jpg",
-    alt: "Bathroom renovation with a freestanding bath, floor-mounted mixer and frosted window",
-    width: 1034,
-    height: 807,
+    src: "/images/projects/home-renovation-living-area-pretoria-01.jpg",
+    alt: "",
+    width: 1600,
+    height: 1200,
   } as { src: string; alt: string; width: number; height: number } | null,
   // Default social-share image (Facebook/WhatsApp/Twitter link previews). Real
   // project photo — a wide exterior shot works better than a portrait/square crop.
