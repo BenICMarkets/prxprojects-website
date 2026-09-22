@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { business } from "@/content/business";
+import { blogPosts } from "@/content/blog";
 import { projects, workPhotos } from "@/content/site";
 import MobileMenu from "./MobileMenu";
 
@@ -8,6 +9,7 @@ export const navItems = [
   { href: "/", label: "Home" },
   { href: "/services/", label: "Services" },
   ...(projects.length || workPhotos.length ? [{ href: "/projects/", label: "Projects" }] : []),
+  ...(blogPosts.length ? [{ href: "/blog/", label: "Blog" }] : []),
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
 ];
