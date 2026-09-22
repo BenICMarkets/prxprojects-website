@@ -25,7 +25,9 @@ export default function Home() {
           className={`mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 md:py-20 ${hero ? "md:grid-cols-2" : ""}`}
         >
           <div>
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl">{business.headline}</h1>
+            <h1 className="text-5xl font-extrabold uppercase leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+              {business.headline}
+            </h1>
             <p className="mt-4 max-w-2xl text-lg text-stone-200">{business.subheadline}</p>
             <div className="mt-8">
               <CtaRow dark />
