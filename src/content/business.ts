@@ -8,7 +8,7 @@ export const business = {
   url: "https://prxprojects.co.za",
   headline: "Renovation & Building Contractors in Pretoria",
   subheadline:
-    "PRX Projects manages bathrooms, kitchens, full-home renovations, extensions and building work across Pretoria East, Centurion and surrounding areas.",
+    "PRX Projects manages bathrooms, kitchens, full-home renovations, extensions, building work and much more — residential and commercial — across Pretoria East, Centurion and surrounding areas.",
   shortLine: "One team. Clear scope. Managed from start to finish.",
   phone: { tel: "+27120019429", display: "012 001 9429" },
   whatsapp: { number: "27825690850", display: "082 569 0850" },
