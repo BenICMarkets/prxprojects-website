@@ -1,4 +1,4 @@
-// Business facts. Anything not yet confirmed by Ben stays null and is never rendered.
+—————// Business facts. Anything not yet confirmed by Ben stays null and is never rendered.
 // PRX Projects is presented as its own brand. Do not add claims (registrations,
 // years of experience, awards, reviews) until they are confirmed for PRX Projects.
 
@@ -11,9 +11,11 @@ export const business = {
     "PRX Projects manages bathrooms, kitchens, full-home renovations, extensions, building work and much more — residential and commercial — across Pretoria East, Centurion and surrounding areas.",
   shortLine: "One team. Clear scope. Managed from start to finish.",
   phone: { tel: "+27120019429", display: "012 001 9429" },
-  whatsapp: { number: "27825690850", display: "082 569 0850" },
-  // Floating WhatsApp button (every page, bottom-right). Separate from the main
-  // WhatsApp number above at Ben's request — update here if it should match.
+    // PRX Projects WhatsApp number. 082 569 0850 is reserved for Plexi Renovations
+    // only and must not appear on the PRX site — confirmed by Ben 2026-09-24.
+    whatsapp: { number: "27799008949", display: "079 900 8949" },
+    // Floating WhatsApp button (every page, bottom-right). Same number as above —
+    // kept as a separate field only because two components reference it.
   whatsappFloat: { number: "27799008949", display: "079 900 8949" },
   // Working value from the brief; swap for a PRX-branded address when available.
   email: "admin@plexirenovations.co.za",
