@@ -1,4 +1,4 @@
-—————// Business facts. Anything not yet confirmed by Ben stays null and is never rendered.
+// Business facts. Anything not yet confirmed by Ben stays null and is never rendered.
 // PRX Projects is presented as its own brand. Do not add claims (registrations,
 // years of experience, awards, reviews) until they are confirmed for PRX Projects.
 
