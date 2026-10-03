@@ -357,6 +357,65 @@ export const blogPosts: BlogPost[] = [
           },
               ],
   },
+  {
+        slug: "bathroom-renovation-cost-pretoria",
+        title: "What Drives Bathroom Renovation Cost in Pretoria?",
+        metaDescription:
+                "A practical look at what actually moves a bathroom renovation quote up or down in Pretoria — layout, fittings, tiling and waterproofing.",
+        excerpt:
+                "Two bathrooms the same size can come in at very different prices. Here's what actually drives the number, so you know what you're comparing when quotes come in.",
+        date: "2026-10-03",
+        category: "Bathrooms",
+        coverImage: {
+                src: "/images/gallery/bathroom-renovation-double-trough-vanity-pretoria-03.jpg",
+                width: 1080,
+                height: 724,
+                alt: "Renovated Pretoria bathroom with a double trough vanity",
+        },
+        body: [
+          {
+                    type: "p",
+                    text: "Two bathrooms of a similar size can land at very different totals once quotes come back, and it's rarely down to one obvious thing. A bathroom concentrates more plumbing, waterproofing and finishing work into a small space than almost any other room, so the cost is really the sum of a lot of smaller decisions. Here's what actually moves the number.",
+          },
+          { type: "h2", text: "Moving the layout costs more than changing finishes" },
+          {
+                    type: "p",
+                    text: "Keeping the toilet, shower and basin roughly where they already are keeps plumbing work to a minimum. Moving any of them — especially the toilet or shower drain — means breaking into the floor to reroute plumbing, which is usually a bigger cost driver than which tile or vanity you choose. It's worth deciding early whether the layout actually needs to change or whether the existing footprint can just be upgraded.",
+          },
+          { type: "h2", text: "Fittings and sanitaryware" },
+          {
+                    type: "p",
+                    text: "Taps, shower mixers, the toilet and the vanity all sit at different price and quality tiers, and the range within each category can be wide. Whether a quote includes these items or excludes them and expects you to supply your own changes the total substantially — ask specifically what's included, since this is one of the most common reasons two quotes for what looks like the same job end up far apart.",
+          },
+          { type: "h2", text: "Tile size and material" },
+          {
+                    type: "p",
+                    text: "Large-format tiles generally need a flatter, more carefully prepared surface than standard-size tiles, and natural stone needs different handling and sealing than porcelain. Neither is automatically the better choice — it depends on the look you want and the surface you're starting from — but it's worth asking a contractor to show you the actual material options at each price tier rather than agreeing to \"tiles\" as a generic line item.",
+          },
+          {
+                    type: "image",
+                    src: "/images/gallery/bathroom-renovation-charcoal-tile-freestanding-bath-pretoria-02.jpg",
+                    width: 768,
+                    height: 1024,
+                    alt: "Charcoal tile bathroom renovation in Pretoria with a freestanding bath",
+          },
+          { type: "h2", text: "Waterproofing is not the place to cut cost" },
+          {
+                    type: "p",
+                    text: "Waterproofing happens before tiling and needs proper curing time, so it adds time and cost that doesn't show in the finished room — but it's the one part of the job you can't inspect again once it's tiled over. A quote that looks noticeably cheaper is worth checking against what it actually specifies for waterproofing, not just the finishes you can see.",
+          },
+          { type: "h2", text: "Shower, bath, or both" },
+          {
+                    type: "p",
+                    text: "A bath takes up floor space a larger shower could use instead, and swapping one for the other is a layout decision with its own plumbing implications, not just a fittings choice. If the bathroom is small, deciding this early avoids redesigning the layout partway through.",
+          },
+          { type: "h2", text: "What to ask for in a detailed quote" },
+          {
+                    type: "p",
+                    text: "A quote broken down by line item — demolition, plumbing, waterproofing, tiling, fittings and finishes — lets you see exactly where the money is going and compare quotes properly. A single lump-sum figure with no breakdown makes it hard to know whether you're comparing like for like, and makes it harder to manage the scope if something needs to change once work is underway.",
+          },
+              ],
+  },
 ];
 
 export function getBlogPost(slug: string) {
