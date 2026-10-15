@@ -416,6 +416,65 @@ export const blogPosts: BlogPost[] = [
           },
               ],
   },
+  {
+        slug: "kitchen-renovation-order-pretoria",
+        title: "Kitchen Renovation Order: Cupboards, Electrical, Plumbing and Tops",
+        metaDescription:
+                "The order kitchen renovation work actually happens in — demolition, electrical and plumbing rough-ins, cupboards, tiling and countertops last — and why the sequence matters.",
+        excerpt:
+                "Cupboards look like the main event, but they're rarely first. Here's the order kitchen renovation work actually happens in, and why skipping it causes problems.",
+        date: "2026-10-15",
+        category: "Kitchens",
+        coverImage: {
+                src: "/images/gallery/kitchen-renovation-subway-tile-island-pretoria-04.jpg",
+                width: 1080,
+                height: 718,
+                alt: "Renovated Pretoria kitchen island with subway tile splashback",
+        },
+        body: [
+          {
+                    type: "p",
+                    text: "New cupboards are the part of a kitchen renovation homeowners picture first, so it's natural to assume they're also the first thing installed. In practice they're usually one of the last. The actual order is driven by what has to happen before something else can, not by what looks like the main event.",
+          },
+          { type: "h2", text: "Demolition and rough-ins come first" },
+          {
+                    type: "p",
+                    text: "Old cabinetry, tiling and any fittings being replaced come out first. Then electrical and plumbing rough-in work happens while walls and floors are still open — moving a plug point, adding a socket for an extractor, running water lines for a new sink or dishwasher position. This is also the point where any layout changes need to be locked in, since opening finished walls back up later is disruptive and adds time.",
+          },
+          { type: "h2", text: "Why cupboards wait" },
+          {
+                    type: "p",
+                    text: "Installing cabinetry before the plumbing and electrical rough-ins are finalised means building around pipes and wiring that might still move, or risking damage to finished units while that work continues. Cupboards generally go in once the walls are closed up and the rough electrical and plumbing positions are fixed, not before.",
+          },
+          {
+                    type: "image",
+                    src: "/images/gallery/kitchen-renovation-gloss-white-countertop-pretoria-02.jpg",
+                    width: 858,
+                    height: 1920,
+                    alt: "Gloss white countertop and cabinetry in a renovated Pretoria kitchen",
+          },
+          { type: "h2", text: "Tiling usually happens before cupboards go in" },
+          {
+                    type: "p",
+                    text: "Floor tiling, and sometimes a tiled splashback, typically happens before cabinetry installation, so tilers aren't working around installed units and the cabinets sit on a finished floor rather than being boxed in awkwardly afterwards. Wall tiling behind where cabinets will sit can happen either before or after, depending on the design.",
+          },
+          { type: "h2", text: "Countertops go in last, and need an accurate template" },
+          {
+                    type: "p",
+                    text: "Countertops are measured and cut only once cabinetry is installed and level, because the template has to match the actual cabinet positions on site, not the original drawing. Templating happens first, the material is cut off-site, and then it's installed — which is why there's usually a gap between cabinets going in and the tops arriving. Ordering countertops before cabinets are in place risks a template that doesn't match on installation day.",
+          },
+          { type: "h2", text: "Appliances and fittings come last" },
+          {
+                    type: "p",
+                    text: "Built-in appliances, taps, sinks and handles are generally the final step, once countertops are in and everything else around them is finished. This is also when snags — a door that doesn't close quite right, a gap that needs sealing — get picked up and addressed before the job is signed off.",
+          },
+          { type: "h2", text: "Why the sequence matters when you're comparing contractors" },
+          {
+                    type: "p",
+                    text: "A contractor who can walk you through this order, and tell you honestly where your particular kitchen is more likely to run into something unexpected — older plumbing, wiring that needs upgrading — is giving you a more realistic picture than one who only gives you a single finish date. It's worth asking where in the sequence problems tend to surface, rather than assuming the whole job moves at one even pace.",
+          },
+              ],
+  },
 ];
 
 export function getBlogPost(slug: string) {
