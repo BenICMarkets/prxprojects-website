@@ -475,6 +475,64 @@ export const blogPosts: BlogPost[] = [
           },
               ],
   },
+  {
+        slug: "renovation-vs-extension-space-problem",
+        title: "Renovation vs Extension: Which One Actually Solves the Space Problem?",
+        metaDescription:
+                "Feeling short on space? Here's how to work out whether a renovation or a full extension actually solves the problem, before committing to either.",
+        excerpt:
+                "Running out of space doesn't always mean you need to build out. Here's how to work out which one actually solves the problem you have.",
+        date: "2026-11-02",
+        category: "Home Renovations",
+        coverImage: {
+                src: "/images/projects/home-renovation-living-area-pretoria-01.jpg",
+                width: 1600,
+                height: 1200,
+                alt: "Open-plan living area in a renovated Pretoria home",
+        },
+        body: [
+          {
+                    type: "p",
+                    text: "\"Running out of space\" is one of the most common reasons homeowners start looking into a renovation — but a bigger house isn't automatically the answer. Before committing to an extension, it's worth working out whether the existing footprint is genuinely too small, or whether it's being used inefficiently.",
+          },
+          { type: "h2", text: "Is the house too small, or just poorly arranged?" },
+          {
+                    type: "p",
+                    text: "Many homes already have enough floor area, but circulation, layout or underused rooms make it feel cramped. A formal dining room nobody sits in, a passage that eats floor space, or a kitchen cut off from the living area can all create a space problem that a better layout solves without adding a single brick.",
+          },
+          {
+                    type: "p",
+                    text: "Walking through the house room by room and noting what's actually used, how often, and for what, is a more useful starting point than jumping straight to \"we need more space.\"",
+          },
+          { type: "h2", text: "When renovation genuinely isn't enough" },
+          {
+                    type: "p",
+                    text: "Some space problems really can't be solved within the existing footprint — a growing family needing another bedroom, a home office that doesn't exist anywhere in the house, or a kitchen and living area that are simply too small for how the household uses them day to day, however the layout is rearranged. In these cases, an extension, or converting an existing space such as a garage, is the realistic option.",
+          },
+          { type: "h2", text: "What an extension involves that a renovation doesn't" },
+          {
+                    type: "p",
+                    text: "Extending usually means a new foundation and roof structure, and often building plans or engineer input depending on what's being added and where. That's a different scale of project to reworking existing rooms — more trades, more approvals, and a longer timeline overall. It's not necessarily the wrong choice, but it's a decision worth making with that scale in mind, rather than assuming it's a quick add-on to the existing renovation.",
+          },
+          {
+                    type: "image",
+                    src: "/images/gallery/exterior-painting-render-double-storey-pretoria-01.jpg",
+                    width: 1500,
+                    height: 2000,
+                    alt: "Exterior of a renovated double-storey home in Pretoria",
+          },
+          { type: "h2", text: "A hybrid approach: rework the layout first" },
+          {
+                    type: "p",
+                    text: "Sometimes the better plan is to renovate first — opening up a layout, removing a non-structural wall, converting an underused room — and only extend if that still doesn't solve the problem. This avoids committing to the cost and disruption of an extension before confirming it's actually necessary.",
+          },
+          { type: "h2", text: "What to ask before committing either way" },
+          {
+                    type: "p",
+                    text: "Ask a contractor to talk through both options honestly, including what each would actually involve on your specific property, not just which one they'd rather sell you. A contractor who takes the time to understand how you use the space, rather than defaulting to \"you need to extend,\" is giving you a more useful starting point for the decision.",
+          },
+              ],
+  },
 ];
 
 export function getBlogPost(slug: string) {
