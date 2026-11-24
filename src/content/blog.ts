@@ -533,6 +533,65 @@ export const blogPosts: BlogPost[] = [
           },
               ],
   },
+  {
+        slug: "why-parapet-walls-leak",
+        title: "Why Parapet Walls Leak",
+        metaDescription:
+                "Parapet walls are one of the most common places a roof actually leaks. Here's why they fail, and what proper waterproofing at a parapet needs to include.",
+        excerpt:
+                "A parapet wall takes more weather than almost any other part of a roof. Here's why they're a common source of leaks, and what to check.",
+        date: "2026-11-24",
+        category: "Waterproofing",
+        coverImage: {
+                src: "/images/gallery/exterior-painting-render-window-detail-pretoria-05.jpg",
+                width: 1500,
+                height: 2000,
+                alt: "Exterior wall and window detail on a rendered Pretoria home",
+        },
+        body: [
+          {
+                    type: "p",
+                    text: "A parapet wall — the low wall that runs along the edge of a flat or low-pitched roof — takes more weather than almost any other part of the building, and it's one of the most common places a roof actually leaks, even when the roof itself is in good condition.",
+          },
+          { type: "h2", text: "What makes a parapet different from the rest of the roof" },
+          {
+                    type: "p",
+                    text: "Unlike the main roof area, a parapet has a vertical face exposed directly to wind-driven rain on one side, and the roof's own waterproofing has to turn up and over the top of the wall (the \"upstand\") on the other. That change in direction is where waterproofing is hardest to get right, and where it's most likely to fail over time.",
+          },
+          { type: "h2", text: "The coping is usually the first point of failure" },
+          {
+                    type: "p",
+                    text: "The coping — the capping that sits on top of the parapet wall — is meant to shed water away from the wall, not let it sit on top or run down the inside face. Cracked, poorly sloped, or poorly jointed coping lets water into the wall itself, where it can travel a surprising distance before it shows up as a stain or damp patch somewhere else entirely.",
+          },
+          { type: "h2", text: "Upstand height and detailing matter as much as the membrane" },
+          {
+                    type: "p",
+                    text: "Even a good quality waterproofing membrane fails if the upstand isn't high enough, or if the membrane isn't properly fixed and sealed at the top edge. Water doesn't need much of a gap to get behind a membrane once wind is driving rain against a vertical surface, which is why the detailing at this join matters as much as the material used.",
+          },
+          {
+                    type: "image",
+                    src: "/images/gallery/exterior-painting-render-window-detail-pretoria-06.jpg",
+                    width: 1500,
+                    height: 2000,
+                    alt: "Close-up of an exterior wall and window detail on a rendered Pretoria home",
+          },
+          { type: "h2", text: "Cracking in the render is a warning sign, not just cosmetic" },
+          {
+                    type: "p",
+                    text: "Hairline cracks in the render on a parapet wall are often dismissed as cosmetic, but they're frequently the actual entry point for water, especially where the wall meets the coping or where there's movement between different building materials. A crack that looks minor from the ground can still let enough water in to cause ongoing damage inside.",
+          },
+          { type: "h2", text: "Why a leak often shows up far from the parapet itself" },
+          {
+                    type: "p",
+                    text: "Because water travels along whatever surface it finds inside a wall or roof cavity, a leak that starts at a parapet can show up as a stain on a ceiling, a damp patch on an internal wall, or a mark well away from the parapet itself. This is why tracing a leak back to its actual source, rather than patching where the damage shows, matters more than it might seem.",
+          },
+          { type: "h2", text: "What proper parapet waterproofing should include" },
+          {
+                    type: "p",
+                    text: "A contractor dealing with a leaking parapet should be checking the coping, the upstand height and detailing, and the condition of the render, not just resealing the roof surface itself. Ask what they're actually inspecting before repairs start, and ask for the warranty on that work in writing, the same as for any other waterproofing job.",
+          },
+              ],
+  },
 ];
 
 export function getBlogPost(slug: string) {
